@@ -11,13 +11,13 @@ class User(AbstractUser):
 
     REQUIRED_FIELDS = ['username']
 
-    def __str__(self):
-        if self.is_superuser:
-            return f"{self.username} --- SUPERUSER"
-        elif self.is_staff:
-            return  f"{self.username} - Staff"
-        else:
-            return f"{self.username}"
+    # def __str__(self):
+    #     if self.is_superuser:
+    #         return f"{self.username} --- SUPERUSER"
+    #     elif self.is_staff:
+    #         return  f"{self.username} - Staff"
+    #     else:
+    #         return f"{self.username}"
         
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -37,7 +37,7 @@ class UserProfile(models.Model):
 
     def __str__(self):
         if self.user.is_superuser:
-            return f"{self.user.username} --- SUPERUSER"
+            return f"{self.user} --- SUPERUSER"
         elif self.user.is_staff:
-            return  f"{self.user.username} - Staff"
+            return  f"{self.user} - Staff"
         return f"{self.first_name} {self.last_name} - ({self.nationality})"
