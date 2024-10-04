@@ -23,7 +23,7 @@ class UserProfileForm(forms.ModelForm):
 
     class Meta:
         model = UserProfile
-        fields = ["first_name", "last_name", "profile_img", "cover_img", "date_of_birth", "address_line1", "address_line2", "city", "nationality", "zipcode", "mobile_num", "modified_at"]
+        fields = ["first_name", "last_name", "profile_img", "cover_img", "date_of_birth", "address_line1", "address_line2", "city", "nationality", "zipcode", "mobile_num"]
 
         widgets = {
             "first_name": forms.TextInput(attrs={'placeholder': "First name"}),
