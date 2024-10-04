@@ -1,15 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import UserCreationForm, UserProfileForm
+from .forms import SignupForm, UserProfileForm
+from .models import User
 
-
-
-def signup(request):
-    userform = UserCreationForm()
+def register(request):
+    userform = SignupForm()
     profileform = UserProfileForm()
     if request.method == "POST":
-        userform = UserCreationForm(request.POST)
-        profileform = UserProfileForm(request.POST)
+        userform = SignupForm(request.POST)
+        profileform = UserProfileForm(request.POST, request.FILES)
 
         if userform.is_valid() and profileform.is_valid():
             new_user = userform.save()

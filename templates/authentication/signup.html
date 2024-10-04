@@ -1,5 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
-<form>{% csrf_token %} {{ userform.as_p }}</form>
-<form>{% csrf_token %} {{ profileform.as_p }}</form>
+<form method="post" action="{% url 'signup' %}" enctype="multipart/form-data">
+  {% csrf_token %} {{ userform.as_p }}{{ profileform.as_p }}
+  <button type="submit">Signup</button>
+</form>
 {% endblock %}
